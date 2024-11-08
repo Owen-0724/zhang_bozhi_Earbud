@@ -12,28 +12,32 @@
     <model-viewer id="model" src="model/earbud_ar.gltf" ar ar-modes="webxr scene-viewer quick-look" ios-src="model/earbuds.usdz" camera-controls poster="images/poster.webp" shadow-intensity="1" tone-mapping="neutral" exposure="1.7" camera-orbit="52.34deg 88.29deg 874.8m" field-of-view="30deg">
 
       <button class="Hotspot" slot="hotspot-1" data-position="0.009202233185071157m 0.03799242778411739m -0.02370139905036278m" data-normal="0.9143793248052647m 0.1867661206173333m -0.35920588324555586m" data-visibility-attribute="visible">
-          <div class="HotspotAnnotation">
+          <div class="HotspotAnnotation" id="hotspot-1">
+            <h2>Noise-cancelling microphones</h2>
+            <p>
+              details
+            </p>
           </div>
       </button>
       
       <button class="Hotspot" slot="hotspot-2" data-position="-0.017773233743149472m 0.03764515248055171m -0.0020753317014933492m" data-normal="-0.8661839176737344m 0.49972534532819274m 0m" data-visibility-attribute="visible">
-          <div class="HotspotAnnotation">
-          </div>
-      </button>
-      
-      <button class="Hotspot" slot="hotspot-3" data-position="0.01948017957005284m 0.03963202604862966m -0.003637894761523354m" data-normal="0.8662977168008591m 0.4995280431223242m 0m" data-visibility-attribute="visible">
-          <div class="HotspotAnnotation">
-          </div>
-      </button>
-      
-      <button class="Hotspot" slot="hotspot-4" data-position="8.209706351369618m -74.79136002933947m 11.903197074480694m" data-normal="0.018820622483499312m -0.18212597696599156m -0.9830950679784314m" data-visibility-attribute="visible">
-          <div class="HotspotAnnotation">
+          <div class="HotspotAnnotation" id="hotspot-2">
             <h2>H2</h2>
             <p>
               details
             </p>
           </div>
       </button>
+      
+      <button class="Hotspot" slot="hotspot-3" data-position="0.01948017957005284m 0.03963202604862966m -0.003637894761523354m" data-normal="0.8662977168008591m 0.4995280431223242m 0m" data-visibility-attribute="visible">
+          <div class="HotspotAnnotation" id="hotspot-3">
+            <h2>H2</h2>
+            <p>
+              details
+            </p>
+          </div>
+      </button>
+      
       <button slot="ar-button" id="ar-button">
           View in your space
       </button>
@@ -42,6 +46,7 @@
       </div>
     </model-viewer>  
   <!-- Loads <model-viewer> for browsers: -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <script src="js/main.js"></script>
   </body>
