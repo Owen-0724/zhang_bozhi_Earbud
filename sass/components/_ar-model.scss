@@ -58,6 +58,13 @@
     height: 30px;
     background-color: #E89B36;
   }
+
+  .HotspotAnnotation img {
+    max-width: 100%; 
+    height: auto;
+    display: block;
+    margin-top: 10px;
+  }
   
   /* AR Rules */
   
