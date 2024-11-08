@@ -1,1 +1,3 @@
-# zhang_bozhi_Earbud
+# Earbud Promotional Site
+## A promotion site for earbud brand "Trident"
+## Zhang Bozhi

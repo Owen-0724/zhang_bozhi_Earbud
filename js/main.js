@@ -5,8 +5,6 @@
   const hotspots = document.querySelectorAll(".Hotspot");
   const content = document.querySelectorAll(".HotspotAnnotation");
 
-  //const content1 = document.querySelector('#hotspot-1');
-
   let info = [
     {
       parts: 'Dynamic drivers',
@@ -26,7 +24,6 @@
   ];
 
   function modelLoaded() {
-    //console.log(hotspots);
     hotspots.forEach(hotspot => {
       hotspot.style.display = "block";
     });
@@ -44,10 +41,9 @@
 
   function fillContent() {
     content.forEach((annotationDiv, index) => {
-      // Clear any existing content
+      
       annotationDiv.innerHTML = "";
 
-      // Populate with info from the array
       let infoParts = document.createElement("h2");
       infoParts.textContent = info[index].parts;
       annotationDiv.appendChild(infoParts);
@@ -56,7 +52,6 @@
       infoDescription.textContent = info[index].description;
       annotationDiv.appendChild(infoDescription);
 
-      // Add image if it exists
       if (info[index].img) {
         let infoImg = document.createElement("img");
         infoImg.src = info[index].img;
@@ -82,5 +77,6 @@
     });
     fillContent();
   });
+  
 })();
 
