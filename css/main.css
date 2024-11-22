@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "Polentical Neon";
+  src: local("Polentical Neon"), url("../font/Polentical Neon Regular.ttf");
+}
+@font-face {
+  font-family: "Polentical Neon Bold";
+  src: local("Polentical Neon Bold"), url("../Polentical Neon Bold.ttf");
+}
+* {
+  font-family: Polentical Neon, Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+}
+
 model-viewer {
   width: auto;
   max-width: 1200px;
@@ -128,4 +142,8 @@ model-viewer[ar-status=session-started] > #ar-prompt {
 
 model-viewer > #ar-prompt > img {
   animation: circle 4s linear infinite;
+}
+
+#explode-view {
+  max-width: 100%;
 }/*# sourceMappingURL=main.css.map */
