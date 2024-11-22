@@ -78,9 +78,11 @@
     fillContent();
   });
   
+
+
   //scroll
 
-  const canvas = document.querySelector("#explode-view");
+  const canvas = document.querySelector("#earbud_scroll");
     const context = canvas.getContext("2d");
 
     canvas.width = 1920;
@@ -98,13 +100,11 @@
       images.push(img);
     }
 
-    //console.log(images);
-
     gsap.to(buds,{
         frame: 410,
         snap: "frame",
         scrollTrigger: {
-            trigger: "#explode-view",
+            trigger: "#earbud_scroll",
             pin: true,
             scrub: 1,
             markers: true,
@@ -117,11 +117,21 @@
 
     function render(){
         context.clearRect(0,0, canvas.width, canvas.height);
-        console.log(images[buds.frame]);
+        //console.log(images[buds.frame]);
         context.drawImage(images[buds.frame],0,0);
     }
 
+    //x-ray
 
+    const divisor = document.querySelector("#divisor");
+    const slider = document.querySelector("#slider");
+
+    function moveDivisor(){
+        console.log(slider.value);
+        divisor.style.width = slider.value+"%";
+    }
+
+    slider.addEventListener("input", moveDivisor);
 
 })();
 
