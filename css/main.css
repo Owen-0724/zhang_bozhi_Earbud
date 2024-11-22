@@ -12,8 +12,22 @@
   font-weight: normal;
 }
 
+.p1 {
+  color: #ff931e;
+  font-size: 40px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+h2 {
+  color: #ff931e;
+  font-size: 60px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
 model-viewer {
-  width: auto;
+  width: 100%;
   max-width: 1200px;
   height: 700px;
   background-color: #efefef;
@@ -43,7 +57,6 @@ model-viewer {
   display: block;
   font-family: Futura, Helvetica Neue, sans-serif;
   font-size: 18px;
-  font-weight: 700;
   left: calc(100% + 1em);
   max-width: 300px;
   overflow-wrap: break-word;
@@ -55,6 +68,20 @@ model-viewer {
   text-align: left;
 }
 
+@keyframes hotspot-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 .HotspotAnnotation p {
   color: #333;
   line-height: 22px;
@@ -148,6 +175,10 @@ model-viewer > #ar-prompt > img {
   max-width: 100%;
 }
 
+html {
+  background-color: rgb(10, 10, 10);
+}
+
 #comparison-con {
   display: none;
 }
@@ -161,7 +192,7 @@ model-viewer > #ar-prompt > img {
   }
   #xray {
     position: relative;
-    aspect-ratio: 16/10;
+    aspect-ratio: 16/9;
     background-image: url(../images/earbud_xray.png);
     background-size: cover;
   }
@@ -203,7 +234,7 @@ model-viewer > #ar-prompt > img {
     appearance: none;
     width: 20px;
     height: 15px;
-    background: #fff;
+    background: #ff931e;
     border-radius: 0;
   }
   input[type=range]::-moz-range-thumb {
@@ -211,7 +242,7 @@ model-viewer > #ar-prompt > img {
     appearance: none;
     width: 20px;
     height: 15px;
-    background: #fff;
+    background: #ff931e;
     border-radius: 0;
   }
   input[type=range]:focus::-webkit-slider-thumb {

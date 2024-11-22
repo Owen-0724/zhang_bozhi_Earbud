@@ -1,82 +1,88 @@
 (() => {
   console.log("IIFE Fired");
   
+  //hotspot
+
   const model = document.querySelector("#model");
   const hotspots = document.querySelectorAll(".Hotspot");
   const content = document.querySelectorAll(".HotspotAnnotation");
 
   let info = [
-    {
-      parts: 'Dynamic drivers',
-      description: '6mm dynamic drivers provide consistently great audio',
-      img: '../images/earbuds_driver.jpg'
-    },
-
-    {
-      parts: 'Metal handle',
-      description: 'non-slip metal handle'
-    },
-
-    {
-      parts: 'High capacity battery',
-      description: '8-hour non-stop playtime for each earbud'
-    }
+      {
+          parts: "Dynamic drivers",
+          description: "6mm dynamic drivers provide consistently great audio",
+          img: "../images/earbuds_driver.jpg",
+      },
+      {
+          parts: "Metal handle",
+          description: "Non-slip metal handle",
+          img: "../images/earbuds_driver.jpg",
+      },
+      {
+          parts: "High capacity battery",
+          description: "8-hour non-stop playtime for each earbud",
+          img: "../images/earbuds_driver.jpg",
+      },
   ];
 
+  
   function modelLoaded() {
-    hotspots.forEach(hotspot => {
-      hotspot.style.display = "block";
-    });
+      hotspots.forEach((hotspot, index) => {
+         
+          hotspot.style.display = "block";
+
+          gsap.fromTo(
+              hotspot,
+              { scale: 0, autoAlpha: 0 },
+              { scale: 1, autoAlpha: 1, duration: 1, delay: index * 0.2 }
+          );
+      });
   }
 
   function showInfo() {
-    let selected = document.querySelector(`#${this.slot}`);
-    gsap.to(selected, 1, { autoAlpha: 1 });
+      let selected = document.querySelector(`#${this.slot}`);
+      gsap.to(selected, { autoAlpha: 1, duration: 0.5 });
+
+      gsap.to(this, { scale: 1.1, duration: 0.3 });
   }
 
   function hideInfo() {
-    let selected = document.querySelector(`#${this.slot}`);
-    gsap.to(selected, 1, { autoAlpha: 0 });
+      let selected = document.querySelector(`#${this.slot}`);
+      gsap.to(selected, { autoAlpha: 0, duration: 0.5 });
+
+      gsap.to(this, { scale: 1, duration: 0.3 });
   }
 
   function fillContent() {
-    content.forEach((annotationDiv, index) => {
-      
-      annotationDiv.innerHTML = "";
+      content.forEach((annotationDiv, index) => {
+          annotationDiv.innerHTML = "";
+        
+          let infoParts = document.createElement("h2");
+          infoParts.textContent = info[index].parts;
+          annotationDiv.appendChild(infoParts);
 
-      let infoParts = document.createElement("h2");
-      infoParts.textContent = info[index].parts;
-      annotationDiv.appendChild(infoParts);
+          let infoDescription = document.createElement("p");
+          infoDescription.textContent = info[index].description;
+          annotationDiv.appendChild(infoDescription);
 
-      let infoDescription = document.createElement("p");
-      infoDescription.textContent = info[index].description;
-      annotationDiv.appendChild(infoDescription);
-
-      if (info[index].img) {
-        let infoImg = document.createElement("img");
-        infoImg.src = info[index].img;
-        annotationDiv.appendChild(infoImg);
-      }
-    });
+          if (info[index].img) {
+              let infoImg = document.createElement("img");
+              infoImg.src = info[index].img;
+              annotationDiv.appendChild(infoImg);
+          }
+      });
   }
-
 
 
   model.addEventListener("load", modelLoaded);
 
-
   hotspots.forEach(function (hotspot) {
-    hotspot.addEventListener("mouseover", showInfo);
-    hotspot.addEventListener("mouseout", hideInfo);
+      hotspot.addEventListener("mouseover", showInfo);
+      hotspot.addEventListener("mouseout", hideInfo);
   });
 
-  
-  model.addEventListener("load", () => {
-    hotspots.forEach(hotspot => {
-      hotspot.style.display = "block";
-    });
-    fillContent();
-  });
+
+  model.addEventListener("load", fillContent);
   
 
 
@@ -132,6 +138,27 @@
     }
 
     slider.addEventListener("input", moveDivisor);
+
+    //scroll animation
+
+    gsap.registerPlugin(ScrollTrigger);
+
+
+    
+    gsap.to("#box", 1,
+      {scrollTrigger:{
+          trigger: "#box",
+
+          toggleActions: "restart resume reverse resume",
+          markers: true,
+
+          start: "top center",
+
+          end: "bottom center"
+      },
+      x:400, ease:"power1.inOut"
+      }
+  )
 
 })();
 
