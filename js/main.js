@@ -78,5 +78,50 @@
     fillContent();
   });
   
+  //scroll
+
+  const canvas = document.querySelector("#explode-view");
+    const context = canvas.getContext("2d");
+
+    canvas.width = 1920;
+    canvas.height = 1080;
+
+    const frameCount = 411;
+    const images = [];
+    const buds = {
+        frame:0
+    }
+
+    for (let i = 0; i < frameCount; i++) {
+      const img = new Image();
+      img.src = `images/earbud_scroll_${i.toString().padStart(5, '0')}.jpg`;
+      images.push(img);
+    }
+
+    //console.log(images);
+
+    gsap.to(buds,{
+        frame: 410,
+        snap: "frame",
+        scrollTrigger: {
+            trigger: "#explode-view",
+            pin: true,
+            scrub: 1,
+            markers: true,
+            start: "top top"
+        },
+        onUpdate: render
+    })
+
+    images[0].addEventListener("load", render)
+
+    function render(){
+        context.clearRect(0,0, canvas.width, canvas.height);
+        console.log(images[buds.frame]);
+        context.drawImage(images[buds.frame],0,0);
+    }
+
+
+
 })();
 

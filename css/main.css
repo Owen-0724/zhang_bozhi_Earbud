@@ -7,7 +7,7 @@
   src: local("Polentical Neon Bold"), url("../Polentical Neon Bold.ttf");
 }
 * {
-  font-family: Polentical Neon Bold, Arial, Helvetica, sans-serif;
+  font-family: Polentical Neon, Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: normal;
 }
@@ -142,4 +142,8 @@ model-viewer[ar-status=session-started] > #ar-prompt {
 
 model-viewer > #ar-prompt > img {
   animation: circle 4s linear infinite;
+}
+
+#explode-view {
+  max-width: 100%;
 }/*# sourceMappingURL=main.css.map */
