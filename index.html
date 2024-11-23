@@ -4,44 +4,81 @@
     <title>Trident EarBuds</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/grid.css" rel="stylesheet"/>
     <link href="css/main.css" rel="stylesheet"/>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
   </head>
   <body>
 
-    <div class="col-span-full">
-      <canvas id="explode-view"></canvas> 
-    </div>
+    
+    <canvas id="earbud_scroll" class="full-width-grid-con"></canvas> 
 
-    <model-viewer id="model" src="model/earbud_ar.gltf" ar ar-modes="webxr scene-viewer quick-look" ios-src="model/earbuds.usdz" camera-controls poster="images/poster.webp" shadow-intensity="1" tone-mapping="neutral" exposure="1.7" camera-orbit="52.34deg 88.29deg 874.8m" field-of-view="30deg">
+    
+    <div class="grid-con">
 
-      <button class="Hotspot" slot="hotspot-1" data-position="0.009202233185071157m 0.03799242778411739m -0.02370139905036278m" data-normal="0.9143793248052647m 0.1867661206173333m -0.35920588324555586m" data-visibility-attribute="visible">
-          <div class="HotspotAnnotation" id="hotspot-1">
+      <div class="l-col-start-3 l-col-end-11 m-col-start-3 m-col-end-11 col-start-1 col-end-5">
+        <p class="p1">Experience the perfect fusion of style and sound with the all-new Trident earbud. 
+        </p>
+        <img src="images/earbud_scroll_00248.jpg">
+        <p class="p1">Designed for those who demand both performance and aesthetics, these earbuds deliver crystal-clear audio and a sleek, futuristic design that turns heads wherever you go.
+        </p>
+        <img src="images/earbud_scroll_00160.jpg">
+        <p class="p1">Whether you're commuting, working out, or relaxing at home, the CoolBuds are your ultimate companion for music, calls, and beyond.</p>
+        <img src="images/earbud_scroll_00300.jpg">
+        
+        <h2>360 view</h2>
+
+        <model-viewer id="model" class="col-span-full" src="model/earbud_ar.gltf" ar ar-modes="webxr scene-viewer quick-look" ios-src="model/earbuds.usdz" camera-controls poster="images/poster.webp" shadow-intensity="1" tone-mapping="neutral" exposure="1.7" camera-orbit="52.34deg 88.29deg 874.8m" field-of-view="30deg">
+
+          <button class="Hotspot" slot="hotspot-1" data-position="0.009202233185071157m 0.03799242778411739m -0.02370139905036278m" data-normal="0.9143793248052647m 0.1867661206173333m -0.35920588324555586m" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation" id="hotspot-1">
+              </div>
+          </button>
+          
+          <button class="Hotspot" slot="hotspot-2" data-position="-0.017773233743149472m 0.03764515248055171m -0.0020753317014933492m" data-normal="-0.8661839176737344m 0.49972534532819274m 0m" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation" id="hotspot-2">
+              </div>
+          </button>
+          
+          <button class="Hotspot" slot="hotspot-3" data-position="0.01948017957005284m 0.03963202604862966m -0.003637894761523354m" data-normal="0.8662977168008591m 0.4995280431223242m 0m" data-visibility-attribute="visible">
+              <div class="HotspotAnnotation" id="hotspot-3">
+              </div>
+          </button>
+          
+          <button slot="ar-button" id="ar-button">
+              View in your space
+          </button>
+          <div id="ar-prompt">
+              <img src="images/ar_hand_prompt.png">
           </div>
-      </button>
-      
-      <button class="Hotspot" slot="hotspot-2" data-position="-0.017773233743149472m 0.03764515248055171m -0.0020753317014933492m" data-normal="-0.8661839176737344m 0.49972534532819274m 0m" data-visibility-attribute="visible">
-          <div class="HotspotAnnotation" id="hotspot-2">
-           </div>
-      </button>
-      
-      <button class="Hotspot" slot="hotspot-3" data-position="0.01948017957005284m 0.03963202604862966m -0.003637894761523354m" data-normal="0.8662977168008591m 0.4995280431223242m 0m" data-visibility-attribute="visible">
-          <div class="HotspotAnnotation" id="hotspot-3">
-           </div>
-      </button>
-      
-      <button slot="ar-button" id="ar-button">
-          View in your space
-      </button>
-      <div id="ar-prompt">
-          <img src="images/ar_hand_prompt.png">
+        </model-viewer>
+        
       </div>
-    </model-viewer>  
+      
+      <h2 id="box" class="l-col-start-1 l-col-span-3 m-col-start-1 col-start-1">X-ray view</h2>  
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0s/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
+      <div class="col-span-full">
 
+        
+
+        <div id="mobile-tablet-view">
+            <img src="images/earbud_xray.png">
+            <img src="images/earbud_xray_n.png">
+        </div>
+        <div id="comparison-con">
+            <div id="xray">
+                <div id="divisor">
+                  <div id="divider-line"></div>
+                </div>
+            </div>
+            <input type="range" min="0" max="100" value="50" id="slider">
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <script src="js/main.js"></script>
   </body>
