@@ -28,6 +28,19 @@ html{
         height: 100%;
         width: 50%;
     }
+
+    #divider-line {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background-color: #ff931e;
+        pointer-events: none;
+    }
+
+    
+    
     input[type=range] {
         -webkit-appearance: none;
         -moz-appearance: none;

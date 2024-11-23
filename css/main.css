@@ -14,18 +14,46 @@
 
 .p1 {
   color: #ff931e;
-  font-size: 40px;
-  margin-top: 60px;
-  margin-bottom: 60px;
+  font-size: 12px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 h2 {
   color: #ff931e;
-  font-size: 60px;
-  margin-top: 60px;
-  margin-bottom: 60px;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
+@media screen and (min-width: 768px) {
+  .p1 {
+    color: #ff931e;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  h2 {
+    color: #ff931e;
+    font-size: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .p1 {
+    color: #ff931e;
+    font-size: 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  h2 {
+    color: #ff931e;
+    font-size: 60px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+}
 model-viewer {
   width: 100%;
   max-width: 1200px;
@@ -204,6 +232,15 @@ html {
     background-size: cover;
     height: 100%;
     width: 50%;
+  }
+  #divider-line {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background-color: #ff931e;
+    pointer-events: none;
   }
   input[type=range] {
     -webkit-appearance: none;
